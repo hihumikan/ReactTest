@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import "./App.css";
+import React from "react";
+/*
+class クラス名 extends 親クラス名 {
+// クラスの定義
+} */
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+    this.title = "カウントアプリ";
+  }
+  countUp() {
+    this.setState({ count: this.state.count + 1 });
+  }
+  render() {
+    return (
+      <div>
+        <h2>{this.title}</h2>
+        <div>{this.state.count}</div>
+        <button
+          onClick={() => {
+            this.countUp();
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          COUNT UP
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
